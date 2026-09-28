@@ -2,7 +2,7 @@
 
 Acest proiect exploreaza implementarea si optimizarea algoritmului Canny pentru detectia de contururi, pornind de la o versiune seriala si ajungand la diverse implementari paralele.
 
-**[➡️ Documentația tehnică, analiza performanței (profilare) și jurnalul de progres](docs/README.md)**
+**[➡️ Documentația tehnică, analiza performanței (profilare) și jurnalul de progres](docs/home.md)**
 ---
 
 ### Echipa
