@@ -1,0 +1,37 @@
+BootStrap: docker
+From: rockylinux:8.9
+IncludeCmd: yes
+
+%post
+    dnf -y install 'dnf-command(config-manager)'
+    dnf config-manager --set-enabled baseos
+    dnf config-manager --set-enabled appstream
+    dnf config-manager --set-enabled powertools || dnf config-manager --set-enabled crb
+    dnf clean all
+    dnf makecache
+
+    # Instalare tools
+    dnf -y install perf-4.18.0-553.69.1.el8_10.x86_64
+    dnf -y install valgrind
+
+    # Adaugă suport OpenMP
+    dnf -y install libgomp
+
+    # Adaugă suport MPI - Open MPI
+    dnf -y install openmpi openmpi-devel
+
+    # Compilatoare
+    dnf -y install gcc gcc-c++
+
+%environment
+    export LD_LIBRARY_PATH=/usr/lib64:$LD_LIBRARY_PATH
+    # Adaugă calea pentru Open MPI
+    export PATH=/usr/lib64/openmpi/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/lib64/openmpi/lib:$LD_LIBRARY_PATH
+
+%labels
+    Author Radu Daia <radu_petru.daia@upb.ro>
+    Version v0.3 Cu suport OpenMP si MPI
+
+%runscript
+    exec "$@"

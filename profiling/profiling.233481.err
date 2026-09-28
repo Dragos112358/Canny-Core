@@ -1,0 +1,46 @@
+INFO:    fuse: warning: library too old, some operations may not work
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by ./../Canny_mpi/Canny_mpi)
+./../Canny_mpi/Canny_mpi: /usr/lib64/libc.so.6: version `GLIBC_2.34' not found (required by ./../Canny_mpi/Canny_mpi)
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[53188,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+
+ Performance counter stats for 'mpirun -np 8 --oversubscribe ./../Canny_mpi/Canny_mpi ../images/input/poza.jpg ../images/output/poza.jpg 15 45 9 1.5':
+
+             86.69 msec task-clock:u              #    0.136 CPUs utilized          
+                 0      context-switches:u        #    0.000 /sec                   
+                 0      cpu-migrations:u          #    0.000 /sec                   
+              3094      page-faults:u             #   35.690 K/sec                  
+          51361449      cycles:u                  #    0.592 GHz                    
+          53906248      instructions:u            #    1.05  insn per cycle         
+          11162629      branches:u                #  128.764 M/sec                  
+            331737      branch-misses:u           #    2.97% of all branches        
+
+       0.639120904 seconds time elapsed
+
+       0.018971000 seconds user
+       0.075327000 seconds sys
+
+

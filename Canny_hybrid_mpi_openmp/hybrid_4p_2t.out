@@ -1,0 +1,26 @@
+mpic++ -std=c++11 -O3 -fopenmp -o Canny_hybrid_mpi_openmp/Canny_hybrid_mpi_openmp Canny_hybrid_mpi_openmp/Canny_hybrid_mpi_openmp.cpp Canny_hybrid_mpi_openmp/Image.cpp
+mpirun -np 2 --oversubscribe ./Canny_hybrid_mpi_openmp/Canny_hybrid_mpi_openmp images/input/1_earth_8k.jpg images/output/output_canny.png 15 45 9 1.5 4
+=== Hybrid MPI+OpenMP Canny Edge Detection ===
+MPI processes: 2
+OpenMP threads per process: 4
+Low threshold: 15
+High threshold: 45
+Kernel size: 9
+Sigma: 1.5
+
+Image loaded: 8192x4096 pixels, 3 channels
+
+Distribution per process:
+  Process 0: rows 0-2047 (2048 rows)
+  Process 1: rows 2048-4095 (2048 rows)
+
+Image scattered to all processes
+Processing started...
+Processing completed on all processes
+
+Elapsed time: 3.81581 seconds
+Output saved: images/output/output_canny.png
+
+Statistics:
+   Total pixels: 33554432
+   Edge pixels: 1824064 (5.436134%)

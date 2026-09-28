@@ -1,0 +1,7 @@
+mpic++ -o Canny_mpi/Canny_mpi Canny_mpi/Canny_mpi.cpp Canny_mpi/Image.cpp
+mpirun -np 8 --oversubscribe ./Canny_mpi/Canny_mpi images/input/1_earth_8k.jpg images/output/output_canny.png 15 45 9 1.5
+Elapsed time: 2.9615 seconds
+MPI Canny completed!
+Output saved: images/output/output_canny.png
+Total pixels: 33554432
+Edge pixels: 1807743 (5.387494%)
