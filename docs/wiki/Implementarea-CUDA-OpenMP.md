@@ -34,7 +34,7 @@ Testele au fost realizate procesând întregul set de imagini, schimbând număr
 
 Acesta este cel mai interesant rezultat al implementării de tip batch.
 
-![Throughput vs Latency](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/throughput_vs_latency.png)
+![Throughput vs Latency](../../wiki_images/cuda_openmp/throughput_vs_latency.png)
 
 Graficul de mai sus ilustrează un compromis fundamental în calculul paralel:
 
@@ -45,15 +45,15 @@ Deși terminăm tot folderul mai repede, fiecare imagine individuală stă mai m
 
 ### 2. Scalabilitate și Eficiență
 
-![Speedup Efficiency](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/speedup_efficiency.png)
-![Elapsed Time](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/elapsed_time.png)
+![Speedup Efficiency](../../wiki_images/cuda_openmp/speedup_efficiency.png)
+![Elapsed Time](../../wiki_images/cuda_openmp/elapsed_time.png)
 
 Graficele de Speedup și Timp Total arată o scalare bună până la 4 thread-uri (Speedup ~2.5x), urmată de o plafonare.
 Eficiența scade puternic la 8 thread-uri (~28%). Acest lucru indică faptul că **4 thread-uri** reprezintă punctul optim pentru acest sistem. Peste această valoare, thread-urile se blochează reciproc așteptând acces la disc/GPU.
 
 ### 3. Analiza pe Etape (De ce crește latența?)
 
-![Stage Duration vs Threads](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/stage_comparison.png)
+![Stage Duration vs Threads](../../wiki_images/cuda_openmp/stage_comparison.png)
 
 Graficul de mai sus arată durata medie a fiecărei etape a algoritmului în funcție de numărul de thread-uri concurente:
 
@@ -64,11 +64,11 @@ Graficul de mai sus arată durata medie a fiecărei etape a algoritmului în fun
 
 Analiza contoarelor de performanță explică degradarea performanței la un număr mare de thread-uri.
 
-![Hardware Counters](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/hardware_counters.png)
+![Hardware Counters](../../wiki_images/cuda_openmp/hardware_counters.png)
 
 IPC-ul scade de la **2.7** la **2.3** atunci când trecem la 8 thread-uri. Procesorul întâmpină dificultăți în a gestiona fluxul de instrucțiuni pentru instanțe.
    
-![Memory Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_openmp/memory_analysis.png)
+![Memory Analysis](../../wiki_images/cuda_openmp/memory_analysis.png)
     Se observă o creștere a ratei de branch miss și page faults la 4 thread-uri, cauzată de presiunea pe memoria RAM și cache-ul procesorului, fiecare thread lucrând cu zone de memorie complet diferite (imagini diferite).
 
 ## 5. Analiza Datelor și Anomalii

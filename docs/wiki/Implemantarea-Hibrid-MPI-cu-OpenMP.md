@@ -81,7 +81,7 @@ Această flexibilitate permite testarea pentru diferite arhitecturi hardware și
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/efficiency.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_efficiency.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/efficiency.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_efficiency.png) |
 
 
 Graficul eficienței pentru implementarea hibridă arată un comportament neașteptat în formă de "W" pe măsură ce crește numărul total de unități de procesare. Eficiența pornește de la valoarea ideală pentru configurația serială, dar scade rapid când se adaugă thread-uri OpenMP pe un singur proces MPI. Pentru configurația cu un proces și patru thread-uri, eficiența ajunge la valori destul de scăzute pentru majoritatea imaginilor.
@@ -98,7 +98,7 @@ Imaginea cea mai mică prezintă cea mai drastică scădere a eficienței, ajung
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/memory_cache.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_memory_cache.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/memory_cache.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_memory_cache.png) |
 
 
 
@@ -116,7 +116,7 @@ Pentru configurațiile cu patru procese MPI, branch miss rate-ul continuă să s
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/stage_timings.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_stage_timings.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/stage_timings.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_stage_timings.png) |
 
 
 
@@ -134,7 +134,7 @@ Hysteresis (funcția `hysteresisThreshold`) prezintă cea mai mică variație î
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/speedup_efficiency.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_speedup_efficiency.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/speedup_efficiency.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_speedup_efficiency.png) |
 
 
 
@@ -150,7 +150,7 @@ Imaginea cea mai mică arată o limitare clară a abordării hibride. Speedup-ul
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/scaling.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_scaling.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/scaling.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_scaling.png) |
 
 
 
@@ -173,7 +173,7 @@ Pentru a înțelege mai profund comportamentul implementării, au fost efectuate
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/VTune_P1_T4_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/VTune_P1_T4_time.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/VTune_P1_T4_summary.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/VTune_P1_T4_time.png) |
 
 Analiza VTune pentru configurația cu un singur proces MPI și patru thread-uri OpenMP arată un profil de execuție dominat de funcțiile computaționale ale algoritmului. Timpul total de execuție se apropie de șase secunde, iar cele mai consumatoare funcții sunt cele legate de Gaussian Blur și calculul gradienților Sobel.
 
@@ -189,7 +189,7 @@ Paralelismul detectat de VTune este foarte scăzut, doar câteva procente, confi
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/VTune_P4_T4_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/VTune_P4_T4_time.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/VTune_P4_T4_summary.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/VTune_P4_T4_time.png) |
 
 
 Profilul VTune arată schimbări dramatice în comportamentul algoritmului, deoarece timpul total de execuție scade la aproximativ 4.5s, dar topul hotspots se modifică semnificativ. Funcția `MPI_Bcast` apare acum pe prima poziție, consumând aproximativ un sfert din timpul total de CPU.
@@ -210,7 +210,7 @@ Paralelismul crește, o îmbunătățire față de configurația cu un proces, d
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/execution_time.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi_openmp/xl_execution_time.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi_openmp/execution_time.png) | ![Efficiency Analysis](../../wiki_images/mpi_openmp/xl_execution_time.png) |
 
 
 Pentru imaginile mari, timpul de execuție scade semnificativ când se trece de la configurații cu un singur proces la cele cu două procese MPI. Reducerea este mult mai dramatică decât cea obținută prin simpla creștere a thread-urilor OpenMP pe același proces.

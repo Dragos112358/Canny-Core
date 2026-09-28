@@ -41,7 +41,7 @@
 
 ### Eficiență
 
-![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/efficiency.png)
+![Efficiency Analysis](../../wiki_images/mpi/efficiency.png)
 
 
 Eficiența scade dramatic de la 100% pentru 1 proces la 50-60% pentru 2 procese și continuă să scadă la 30-50% la 8 procese. Imaginile **poza** și **1_earth_8k** au eficiența cea mai scăzută (25-30% pentru 8 procese), sugerând că aceste imagini sunt prea mici sau prea mari pentru a beneficia de paralelizare MPI.
@@ -52,7 +52,7 @@ Imaginile de dimensiune medie (**sky**) au eficiență relativ mai bună, deci e
 ### Memorie și memorie cache comparație
 
 #### Imaginea **poza**
-![Memory vs cache memory](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/poza_memory_cache.png "poza")
+![Memory vs cache memory](../../wiki_images/mpi/poza_memory_cache.png "poza")
 
 Contrar intuiției, numărul de page faults crește, iar branch miss rate-ul scade ușor pe măsură ce procesele cresc. Rata erorilor de predicție scade, deoarece codul algoritmului Canny rămâne identic pentru fiecare proces, iar procesorul învață mai bine să prezică atunci când se execută ramuri din cod.
 
@@ -62,7 +62,7 @@ Astfel, Branch prediction rămâne eficient indiferent de numărul de procese, d
 
 
 #### Imaginea **1_earth_8k**
-![Memory vs cache memory](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/earth_8k_memory_cache.png "1_earth_8k")
+![Memory vs cache memory](../../wiki_images/mpi/earth_8k_memory_cache.png "1_earth_8k")
 
 Graficul arată că numărul de page faults crește liniar de la aproximativ 23.000 la 140.000, indicând că fiecare proces nou adaugă presiune asupra memoriei virtuale. Această degradare a miss rate-ului (de la 84% la 97%) este normală pentru algoritmii MPI, deoarece pe măsură ce numărul de procese crește, ele ajung să concureze pentru cache-ul partajat, și fiecare proces are o porțiune mai mică din cache disponibil.
 
@@ -73,7 +73,7 @@ Prin urmare, performanța memoriei se degradează semnificativ cu numărul de pr
 
 ### Durata execuției etapei
 
-![Stage timings](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/stage_timings.jpeg)
+![Stage timings](../../wiki_images/mpi/stage_timings.jpeg)
 
 Graficul arată timpul de execuție al fiecărei etape (Grayscale, Gaussian Blur, Hysteresis) pe măsură ce numărul de procese crește de la 1 la 8. Grayscale și Hysteresis sunt etape mici care rămân relativ constante (200-1600 ms pentru Gaussian Blur și 100-1500 ms pentru Hysteresis). Gaussian Blur domină timpul total, scăzând de la 6000 ms la 1400 ms pentru 8 procese.
 
@@ -81,7 +81,7 @@ Astfel, Gaussian Blur este problema principală a algoritmului, fiind responsabi
 
 ### Speedup
 
-![Speedup](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/speedup_efficiency.png)
+![Speedup](../../wiki_images/mpi/speedup_efficiency.png)
 
 Graficul compară speedup-ul pe mai multe imagini diferite pe măsură ce numărul de procese crește de la 1 la 8. Imaginile mici au speedup mic, deoarece overhead-ul comunicației MPI are un impact mare. Imaginea Sky are un speedup mai liniar, iar pentru imaginile mari se atinge speedup de 4 la 8 procese.
 
@@ -91,7 +91,7 @@ Astfel, MPI este ineficient pentru imagini mici datorită overhead-ului fix de c
 
 
 ### Analiză scalabilitate
-![Scaling](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/scaling.png)
+![Scaling](../../wiki_images/mpi/scaling.png)
 
 Graficul compară speedup ideal cu speedup observat pentru mai multe imagini. Nicio imagine nu scalează liniar, iar abaterea de la ideal crește cu numărul de procese. Aceasta confirmă că MPI are un overhead semnificativ.
 
@@ -105,7 +105,7 @@ Pentru a înțelege mai bine comportamentul algoritmului MPI, au fost efectuate 
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/VTune_P2_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/VTune_P2_time.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi/VTune_P2_summary.png) | ![Efficiency Analysis](../../wiki_images/mpi/VTune_P2_time.png) |
 
 
 Analiza arată că Gaussian Blur rămâne funcția dominantă, ocupând aproximativ 20% din timpul total de CPU. `MPI_Bcast` apare în top cu o contribuție semnificativă, indicând că operațiile de broadcast pentru dimensiunile imaginii și parametri introduc o latență considerabilă.
@@ -119,7 +119,7 @@ Pattern-ul din histogramă relevă o problemă fundamentală a MPI pentru acest 
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/VTune_P8_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/VTune_P8_time.png) |
+| ![Efficiency Analysis](../../wiki_images/mpi/VTune_P8_summary.png) | ![Efficiency Analysis](../../wiki_images/mpi/VTune_P8_time.png) |
 
 
 
@@ -133,7 +133,7 @@ Histograma de utilizare a procesorului arată o distribuție ușor mai răspând
 
 
 ### Timp de execuție
-![](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/mpi/execution_time.png)
+![](../../wiki_images/mpi/execution_time.png)
 
 Timpul de execuție pentru imaginile mari, precum **1_earth_8k**, **sky**, scade exponențial de la 10s pentru 1 proces la 2-3s pentru 8 procese, iar pentru cele mici, rămâne constant, indicând că s-a atins un plafon la 2-3 procese.
 

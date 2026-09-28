@@ -25,14 +25,14 @@ GPU → CPU: Transfer rezultat final
 
 Pentru partea de profiling, am folosit _Nsight Compute_ pe un sistem cu **NVIDIA RTX 2000 ADA Generation**.
 
-![image](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/2x2_profiling.png){width=1148 height=320}
+![image](../../wiki_images/cuda/2x2_profiling.png){width=1148 height=320}
 
 Imaginea de mai sus surprinde rezultatul obținut în urma rulării variantei CUDA a algoritmului Canny pe image _1_earth_8k.png_ (8192x4096 pixels, 3 channels). \
 Pentru a stabili o referință, am testat inițial kernel-urile cu o dimensiune a blockului de 2x2 (4 threaduri), simulând un scenariu de ocupare minimă a resurselor. Profiler-ul a raportat un _Estimated Speedup_ de 87.5%, o valoare care indică direct ineficiența utilizării hardware-ului. Dat fiind faptul că warp-urile de pe GPU au 32 de thread-uri, utilizarea a doar 4 fire per bloc înseamnă că 28 de fire (87.5%) sunt inactive în fiecare ciclu de execuție. \
 Mai mult, _Grid size-ul_ excesiv de mare (4096 x 2048 blocks) și valorile mici ale _Compute Throughput_ și _Memory Thorughput_ indică faptul că utilizarea, folosind acest kernel size, este suboptimă. Putem concluziona că, în cazul de față, algoritmii sunt **Latency Bound**, adică configurația proastă nu permit utilizarea la maxim a puterii de calcul sau a lățimii benzii.
 
 Următoarea imagine surprinde trecerea de la această varianta, suboptimă, la o variantă mult mai îmbunătățită, ce folosește 8x8 thread-uri per block.
-![image](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/8x8_profiling.png){width=1174 height=329}
+![image](../../wiki_images/cuda/8x8_profiling.png){width=1174 height=329}
 
 Trecerea la această configurație de 64 de thread-uri a eliminat complet ineficiența de planificare a wrap-urilor, _Estimated Speedup_ scăzând la 0%. \
 Kernel-urile _gaussianBlurKernel_ și _sobelKernel_ demonstrează, de asemenea, o eficiența de dorit, atingând aproape 100% _Memory Throughput_, aproape de limita fizică maximă a plăcii. Din acest fapt putem deduce că algoritmii sunt **Memory Bound**, fiind limitați de lățimea benzii. \
@@ -44,7 +44,7 @@ Analizând distribuția timpului de execuție pentru configurația optimă de bl
 
 În consecință, etapa de **Hysteresis** a devenit noul bottleneck, ocupând majoritatea timpului de execuție (~90% din timpul total în cazul imaginii 8K).
 
-![Pie Chart Breakdown BS16](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/pie_1_earth_8k_jpg_BS16.png)
+![Pie Chart Breakdown BS16](../../wiki_images/cuda/pie_1_earth_8k_jpg_BS16.png)
 
 Graficul de mai sus (pentru imaginea _1_earth_8k.png_ cu BS 16) evidențiază discrepanța:
 * **Gaussian Blur & Sobel:** Executate extrem de rapid (~12ms, respectiv ~1.3ms) datorită paralelizării masive și utilizării eficiente a memoriei;
@@ -57,14 +57,14 @@ Pentru a înțelege impactul real al dimensiunii block-ului asupra performanței
 **1. Evoluția Timpului**
 Primul impact vizibil este reducerea drastică a timpului de execuție.
 
-![Kernel Time Linear](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/kernel_time.png)
+![Kernel Time Linear](../../wiki_images/cuda/kernel_time.png)
 
 Se observă o scădere puternică a timpului de la ~3000ms (pentru BS=2) la sub 200ms pentru configurațiile optime. Aceasta demonstrează că utilizarea a prea puține thread-uri per block utilizează suboptim hardware-ul.
 
 **2. Analiza Componentelor**
 Pentru a identifica bottleneck-ul în configurația optimă, am analizat componentele timpului pe o scară logaritmică.
 
-![Time Components Log](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/time_log.png)
+![Time Components Log](../../wiki_images/cuda/time_log.png)
 
 Acest grafic oferă următoarele informații:
 * **Run Time (Albastru):** Scade exponențial odată cu creșterea block size-ului.
@@ -74,7 +74,7 @@ Acest grafic oferă următoarele informații:
 **3. Speedup**
 Sintetizând datele într-un factor de speedup față de varianta de bază (BS=2):
 
-![Speedup Graph](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/speedup.png)
+![Speedup Graph](../../wiki_images/cuda/speedup.png)
 
 Configurația câștigătoare (**Block Size = 16**) oferă un **speedup de aproximativ 18x** față de cazul cel mai defavorabil. De remarcat este faptul că la `BS=32`, performanța începe să scadă ușor, sugerând că am depășit punctul optim.
 
@@ -94,7 +94,7 @@ Se observă configurația optimă: **block size de 16x16**.
 
 Graficul de mai jos ilustrează reducerea timpului total de execuție pe măsură ce creștem dimensiunea block-ului. Se observă clar cum benzile corespunzătoare kernel-urilor de calcul (Blur, Sobel) se subțiază semnificativ de la configurația 2x2 la 16x16.
 
-![Stacked Bar Breakdown](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda/breakdown_stacked_absolute_1_earth_8k_jpg.png)
+![Stacked Bar Breakdown](../../wiki_images/cuda/breakdown_stacked_absolute_1_earth_8k_jpg.png)
 
 Deși analiza detaliată s-a concentrat pe imaginea de rezoluție foarte mare (8K), testele efectuate pe întreg setul de date (imagini variind de la 0.3MP la 33MP) au indicat constant că **blocksize-ul de 16x16** reprezintă arhitectura optimă. Indiferent de dimensiunea imaginii, această configurație a oferit cel mai bun echilibru între ocuparea multiprocesoarelor și resursele disponibile per thread.
 

@@ -56,7 +56,7 @@
 
 ### Comparație multithreaded vs nonmultithreaded
 Am ales să realizez această comparație folosind scriptul [script_profiling.sh](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/script_profiling.sh). Analiza principală a fost pe imaginea 1_earth_8k, de dimensiune 8192*4096.
-![Poza1](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__BranchMiss_Hybrid_MPI_Pthreads.png)
+![Poza1](../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__BranchMiss_Hybrid_MPI_Pthreads.png)
 
 ### Analiză Stabilitate Predicție CPU (Hybrid MPI + Pthreads)
 
@@ -64,7 +64,7 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 * **Instabilitate:** Între 2 și 8 nuclee, zonele umbrite largi semnalează o variabilitate mare a performanței, cauzată de diferența imensă de configurare (4 threaduri și 2 procese vs 4 procese și 2 threaduri)
 * **Convergență:** La **16 nuclee**, sistemul atinge stabilitatea maximă,iar aici se înregistrează cea mai mică rată de eroare (~2.20%).
 
-![Poza2](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__IPC_Hybrid_MPI_Pthreads.png)
+![Poza2](../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__IPC_Hybrid_MPI_Pthreads.png)
 
 ### Analiză Eficiență Hardware (IPC): Hybrid MPI + Pthreads
 * **Trend Descendent:** IPC-ul (Instructions Per Cycle) scade treptat de la ~2.5 la ~1.75 pe măsură ce numărul de nuclee crește, indicând tranziția către o execuție limitată de memorie (memory bound).
@@ -73,7 +73,7 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 * **Stabilitate la 16 Nuclee:** La saturație maximă, variațiile dispar, iar sistemul se stabilizează la un IPC uniform de ~1.75, indiferent de configurația proceselor sau firelor.
 
-![Poza3](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__Speedup_Hybrid_MPI_Pthreads.png)
+![Poza3](../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__Speedup_Hybrid_MPI_Pthreads.png)
 
 ### Analiză Scalabilitate (Speedup): Hybrid MPI + Pthreads
 * **Saturație Rapidă:** Linia de performanță reală (albastră/portocalie) deviază rapid de la linia ideală (gri punctat) după 2 nuclee, atingând un platou de ~4x speedup la 16 nuclee. Acest lucru confirmă limitările de memorie și overhead-ul MPI.
@@ -82,7 +82,7 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 * **Zona Critică (4-8 Nuclee):** "Umbra" largă în zona de 4-8 nuclee indică o variație mare a performanței în funcție de configurația specifică (Procese vs Thread-uri), subliniind importanța modificării fine a parametrilor MPI/Pthreads în această zonă.
 
-![Poza4](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__Time_Hybrid_MPI_Pthreads.png)
+![Poza4](../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__1_earth_8k_jpg__Time_Hybrid_MPI_Pthreads.png)
 
 ### Analiză Scalabilitate (Speedup): Hybrid MPI + Pthreads
 * **Saturație Rapidă:** Graficul de Speedup arată că linia de performanță reală (albastră/portocalie) deviază rapid de la linia ideală (gri punctat, care reprezintă o scalare perfectă 1:1) imediat după 2 nuclee. La 16 nuclee, speedup-ul atinge un platou în jurul valorii de 4x. Acest lucru confirmă că limitările principale sunt lățimea de bandă a memoriei și overhead-ul de comunicare MPI/Pthreads, nu puterea brută de calcul.
@@ -98,9 +98,9 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 | Timp Execuție | Speedup |
 | :---: | :---: |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
 | **IPC** | **Branch Misses** |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__city_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
 
 </details>
 
@@ -109,9 +109,9 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 | Timp Execuție | Speedup |
 | :---: | :---: |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
 | **IPC** | **Branch Misses** |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__poza_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
 
 </details>
 
@@ -120,9 +120,9 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 | Timp Execuție | Speedup |
 | :---: | :---: |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
 | **IPC** | **Branch Misses** |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__istockphoto-478656454-612x612_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
 
 </details>
 
@@ -131,9 +131,9 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 | Timp Execuție | Speedup |
 | :---: | :---: |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
 | **IPC** | **Branch Misses** |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-eberhardgross-858115_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
 
 </details>
 
@@ -142,16 +142,16 @@ Am ales să realizez această comparație folosind scriptul [script_profiling.sh
 
 | Timp Execuție | Speedup |
 | :---: | :---: |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__Time_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__Speedup_Hybrid_MPI_Pthreads.png" width="100%"> |
 | **IPC** | **Branch Misses** |
-| <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
+| <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__IPC_Hybrid_MPI_Pthreads.png" width="100%"> | <img src="../../wiki_images/MPI_PTHREADS/Comparative_Analysis_HT_vs_Physical__pexels-joey-kyber-31917-134643_jpg__BranchMiss_Hybrid_MPI_Pthreads.png" width="100%"> |
 
 </details>
 
 ### Comparatie Haswell vs XL
 Am ales să rulez atât pe Haswell, cât și pe XL, pentru a putea vedea cum se comportă algoritmul pe 2 arhitecturi diferite. Am rulat pe Haswell toți algoritmii care nu necesitau GPU ([CUDA](/app-2025/cannycore/-/wikis/wiki/Implementarea-CUDA), [CUDA + OpenMP](/app-2025/cannycore/-/wikis/wiki/Implementarea-CUDA-OpenMP), [CUDA + MPI](/app-2025/cannycore/-/wikis/wiki/Implementarea-CUDA-MPI)), iar pe XL am rulat absolut toți cei 9 algoritmi, inclusiv cei care includeau Cuda.
 
-![Poza1](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/2_Scalability_Hybrid_MPI_Pthreads_1_earth_8k.jpg.png)
+![Poza1](../../wiki_images/MPI_PTHREADS/2_Scalability_Hybrid_MPI_Pthreads_1_earth_8k.jpg.png)
 
 ### Analiză Comparativă Scalabilitate: Haswell vs. XL (Hybrid MPI + Pthreads)
 Arhitecturi Diferite: Graficul compară scalabilitatea (Speedup) implementării hibride pe două arhitecturi diferite: nodul de calcul clasic Haswell și nodul GPU XL.
@@ -164,11 +164,11 @@ Arhitecturi Diferite: Graficul compară scalabilitatea (Speedup) implementării 
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 ### Scalabilitate: Haswell vs. XL
 
@@ -191,11 +191,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 </details>
 
@@ -204,11 +204,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 </details>
 
@@ -217,11 +217,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 </details>
 
@@ -230,11 +230,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 </details>
 
@@ -243,11 +243,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Breakdown MPI+Pthreads) | XL (Breakdown MPI+Pthreads) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="Haswell 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="Haswell 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="Haswell 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="Haswell 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="Haswell 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL 16 Cores"> |
 
 </details>
 
@@ -257,22 +257,22 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 <details>
 <summary><strong> Vezi analiza: City (Rezoluție Medie)</strong> - <i>Click aici</i></summary>
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 </details>
 
@@ -281,11 +281,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 </details>
 
@@ -294,11 +294,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 </details>
 
@@ -307,11 +307,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 </details>
 
@@ -320,11 +320,11 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | XL No Multithread (nomultithread) | XL Standard (multithread) |
 | :---: | :---: |
-| **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
-| **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
-| **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
-| **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
-| **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
+| **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL NoMulti 1 Core"> | **1 Core**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores1.png" width="100%" alt="XL Full 1 Core"> |
+| **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL NoMulti 2 Cores"> | **2 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores2.png" width="100%" alt="XL Full 2 Cores"> |
+| **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL NoMulti 4 Cores"> | **4 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores4.png" width="100%" alt="XL Full 4 Cores"> |
+| **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL NoMulti 8 Cores"> | **8 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores8.png" width="100%" alt="XL Full 8 Cores"> |
+| **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL NoMulti 16 Cores"> | **16 Cores**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Breakdown_Hybrid_MPI_Pthreads_Cores16.png" width="100%" alt="XL Full 16 Cores"> |
 
 </details>
 
@@ -332,10 +332,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison**<br>*(Timp per etapă algoritm)* | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache**<br>*(Analiză cache misses)* | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters**<br>*(Contoare hardware)* | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison**<br>*(Timp per etapă algoritm)* | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache**<br>*(Analiză cache misses)* | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters**<br>*(Contoare hardware)* | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 ### 1. Speedup & Efficiency
 * Comportament Identic: Ambele configurații arată o scalare sub-liniară. Linia albastră (Actual Speedup) se distanțează rapid de cea galbenă (Ideal) după 2-4 nuclee.
@@ -373,10 +373,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 </details>
 
@@ -385,10 +385,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 </details>
 
@@ -397,10 +397,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_istockphoto-478656454-612x612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 </details>
 
@@ -409,10 +409,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 </details>
 
@@ -421,10 +421,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Metrica | XL No Multithread | XL Standard (Full) |
 | :--- | :---: | :---: |
-| **Speedup & Efficiency** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
-| **Stage Comparison** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
-| **Memory & Cache** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
-| **Perf Counters** | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
+| **Speedup & Efficiency** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Speedup Full"> |
+| **Stage Comparison** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Stages Full"> |
+| **Memory & Cache** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Memory Full"> |
+| **Perf Counters** | <img src="../../wiki_images/MPI_PTHREADS/Profiling_xl_no_multithreading__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf NoMulti"> | <img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Perf Full"> |
 
 </details>
 
@@ -432,10 +432,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (1_earth_8k) | XL (1_earth_8k) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_1_earth_8k__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 
 
@@ -485,10 +485,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (City) | XL (City) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_city__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 </details>
 
@@ -497,10 +497,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Poza) | XL (Poza) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_poza__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 </details>
 
@@ -509,10 +509,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (iStock) | XL (iStock) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_istock_photo_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_ISTOCK_PHOTO_612__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 </details>
 
@@ -521,10 +521,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Pexels-Eberhard) | XL (Pexels-Eberhard) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-eberhardgross-858115__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 </details>
 
@@ -533,10 +533,10 @@ Mai jos regăsiți analiza detaliată a timpilor de execuție pe etape (Breakdow
 
 | Haswell (Pexels-Joey) | XL (Pexels-Joey) |
 | :---: | :---: |
-| **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
-| **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
-| **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
-| **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
+| **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Memory"> | **Memory & Cache Analysis**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Memory_Cache_Analysis_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Memory"> |
+| **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Perf Counters"> | **Performance Counters**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Perf_Counters_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Perf Counters"> |
+| **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Speedup"> | **Speedup & Efficiency**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Speedup_Efficiency_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Speedup"> |
+| **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_haswell__analysis_charts_haswell_pexels_joey_kyber__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="Haswell Stage Comp"> | **Stage Comparison**<br><img src="../../wiki_images/MPI_PTHREADS/Profiling_full_xl__analysis_charts_pexels-joey-kyber-31917-134643__Stage_Comparison_Hybrid_MPI_Pthreads.png" width="100%" alt="XL Stage Comp"> |
 
 </details>
 
@@ -699,28 +699,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 2 | **Context:** Low Parallelism
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T2/07_Source.png" width="100%">
 
 </details>
 
@@ -732,28 +732,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 4 | **Context:** Medium Parallelism (Distributed + Shared)
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T2/07_Source.png" width="100%">
 
 </details>
 
@@ -765,28 +765,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 4 | **Context:** Pure Shared Memory
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P1_T4/07_Source.png" width="100%">
 
 </details>
 
@@ -798,28 +798,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 8 | **Context:** High Parallelism (MPI Dominant)
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T2/07_Source.png" width="100%">
 
 </details>
 
@@ -831,28 +831,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 8 | **Context:** High Parallelism (Balanced)
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P2_T4/07_Source.png" width="100%">
 
 </details>
 
@@ -864,28 +864,28 @@ Această pagină conține profilarea completă pentru diverse configurații hibr
 **Total Cores:** 16 | **Context:** Maximum Load / Saturation
 
 ### 1. Summary (General)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary.png" width="100%">
 
 ### 2. Summary Graph (CPU Histogram)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary_Graph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary_Graph.png" width="100%">
 
 ### 3. Summary Top (Hotspots List)
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary_Top.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/01_Summary_Top.png" width="100%">
 
 ### 4. Bottom-up Timeline
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/03_CallerCallee.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/03_CallerCallee.png" width="100%">
 
 ### 5. Caller / Callee
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/04_TopDown.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/04_TopDown.png" width="100%">
 
 ### 6. Top Down Tree
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/05_FlameGraph.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/05_FlameGraph.png" width="100%">
 
 ### 7. Flame Graph
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/06_Platform.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/06_Platform.png" width="100%">
 
 ### 8. Platform View
-<img src="https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/07_Source.png" width="100%">
+<img src="../../wiki_images/MPI_PTHREADS/Performance_intelvtune__hybrid_mpi_pthread_P4_T4/07_Source.png" width="100%">
 
 </details>
 

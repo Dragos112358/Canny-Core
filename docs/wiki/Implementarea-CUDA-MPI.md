@@ -31,7 +31,7 @@ Testele au fost realizate pe cluster, folosind imaginea _1_earth_8k.png_, modifi
 
 ### 1. Scalabilitate și Eficiență
 
-![Speedup Efficiency](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_mpi/speedup_efficiency_cuda_mpi.png)
+![Speedup Efficiency](../../wiki_images/cuda_mpi/speedup_efficiency_cuda_mpi.png)
 
 Graficul de mai sus ilustrează o **scalare negativă** atunci când măsurăm timpul total de execuție (inclusiv alocarea resurselor).
 * **Speedup-ul real** scade sub 1.0, ajungând la **0.44x** în cazul utilizării a 4 procese.
@@ -41,7 +41,7 @@ Acest comportament indică faptul că, pe un singur nod fizic, overhead-ul intro
 
 ### 2. Identificarea Bottleneck-ului (Analiza pe Etape)
 
-![Stage Comparison](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_mpi/stage_comp.png)
+![Stage Comparison](../../wiki_images/cuda_mpi/stage_comp.png)
 
 Descompunerea timpului pe etape explică clar pierderea de eficiență:
 * **Hysteresis (Linia Portocalie):** Timpul scade aproape ideal pe măsură ce creștem numărul de nuclee. Acest lucru confirmă că **paralelizarea algoritmului funcționează corect**; munca de calcul este împărțită echitabil între procese.
@@ -62,7 +62,7 @@ Deși timpul de calcul scade, timpul total **crește dramatic**. Acest lucru est
 
 Dincolo de timpii de execuție, analiza contoarelor hardware (folosind *Intel vTune*) indică costurile ascunse ale paralelizării distribuite pe un singur nod.
 
-![Hardware Counters](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_mpi/perf_counters.png)
+![Hardware Counters](../../wiki_images/cuda_mpi/perf_counters.png)
 
 Graficul de mai sus evidențiază două fenomene critice care apar odată cu creșterea numărului de procese MPI pe același nod fizic:
 
@@ -76,13 +76,13 @@ Graficul de mai sus evidențiază două fenomene critice care apar odată cu cre
 
 Pentru a confirma ipotezele legate de limitările de comunicare, am efectuat o analiză detaliată a execuției folosind **Intel vTune Profiler** pentru scenariul cu 4 procese MPI.
 
-![Intel vTune Top Hotspots](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_mpi/elapsed_info.png)
+![Intel vTune Top Hotspots](../../wiki_images/cuda_mpi/elapsed_info.png)
 
 Raportul vTune oferă dovada definitivă a bottleneck-ului de comunicare:
 * **Top Hotspot:** Funcția `MPI_Bcast` este responsabilă pentru **44.7%** din timpul total de utilizare a CPU-ului. Acest procent semnificativ confirmă că procesorul petrece aproape jumătate din timp gestionând difuzarea datelor către celelalte noduri, nu făcând calcule utile.
 * **Serializarea I/O:** Următoarele funcții cele mai costisitoare sunt cele din biblioteca `stb_image` (ex: `stbi_zlib_compress`). Acest lucru subliniază impactul părții secvențiale a codului (citirea/scrierea imaginilor), care nu poate fi accelerată de GPU.
 
-![Intel vTune Histogram](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/cuda_mpi/cpu_graph.png)
+![Intel vTune Histogram](../../wiki_images/cuda_mpi/cpu_graph.png)
 
 Histograma de mai sus arată distribuția nivelului de paralelism pe durata execuției.
 Barele sunt concentrate masiv în partea stângă a graficului (număr redus de CPU-uri active simultan). Deși sistemul dispune de multiple nuclee logice, acestea sunt rareori utilizate simultan la capacitate maximă.

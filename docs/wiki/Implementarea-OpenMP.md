@@ -29,7 +29,7 @@ Paralel/Serial: Salvarea rezultatului final
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/efficiency.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/xl_efficiency.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/efficiency.png) | ![Efficiency Analysis](../../wiki_images/openmp/xl_efficiency.png) |
 
 
 Graficul arată o scădere constantă pe măsură ce crește numărul de thread-uri, comportament caracteristic paralelizării pe memorie partajată. Eficiența pornește de la valoarea ideală pentru execuția cu un singur thread, apoi scade progresiv la aproximativ jumătate pentru 2 thread-uri.
@@ -44,7 +44,7 @@ Imaginea cea mai mică suferă cea mai drastică degradare a eficienței, scăz�
 
 #### Imaginea **1_earth_8k**
 
-![Memory vs cache memory](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/earth_8k_memory_cache.png)
+![Memory vs cache memory](../../wiki_images/openmp/earth_8k_memory_cache.png)
 
 Graficul arată că numărul de page faults crește aproape liniar, indicând că fiecare thread nou adaugă presiune asupra memoriei virtuale. Această creștere liniară, mai lentă decât la imaginile mici, sugerează că sistemul de paging este mai stabil cu imagini mari.
 
@@ -57,7 +57,7 @@ Prin urmare, performanța memoriei se degradează mai ușor cu imagini mari dec�
 
 #### Imaginea **poza**
 
-![Memory vs cache memory](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/poza_memory_cache.png)
+![Memory vs cache memory](../../wiki_images/openmp/poza_memory_cache.png)
 
 Pentru imaginile de dimensiune mică, numărul de page faults crește liniar (de la aprox. 1800 la 1900), ceea ce este un comportament mult mai stabil comparativ cu varianta MPI. Aceasta se datorează modelului de memorie partajată specific OpenMP-ului, unde nu este necesară duplicarea masivă a datelor între procese.
 
@@ -70,7 +70,7 @@ Branch Miss Rate-ul scade constant (de la 0.98% la 0.86%) pe măsură ce număru
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/stage_timings.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/xl_stage_timings.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/stage_timings.png) | ![Efficiency Analysis](../../wiki_images/openmp/xl_stage_timings.png) |
 
 
 Analiza timpului pe fiecare etapă a algoritmului arată clar unde paralelizarea OpenMP aduce cele mai mari beneficii. Etapa de conversie Grayscale rămâne neglijabilă indiferent de numărul de thread-uri, fiind o operație simplă care nu justifică overhead-ul de paralelizare complexă.
@@ -90,7 +90,7 @@ Hysteresis prezintă cea mai mică variație dintre configurații, timpul rămâ
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/speedup_efficiency.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/xl_speedup_efficiency.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/speedup_efficiency.png) | ![Efficiency Analysis](../../wiki_images/openmp/xl_speedup_efficiency.png) |
 
 
 Graficul arată că implementarea OpenMP scalează mult mai bine decât implementarea MPI pentru toate categoriile de imagini. Imaginile mari ating un speedup de aproximativ 6 ori pentru 8 thread-uri. Această diferență semnificativă reflectă costul redus al sincronizării pe memorie comună comparativ cu comunicația între procese separate.
@@ -105,7 +105,7 @@ Un pattern observat este că speedup-ul crește aproape liniar până la 4 threa
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/scaling.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/xl_scaling.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/scaling.png) | ![Efficiency Analysis](../../wiki_images/openmp/xl_scaling.png) |
 
 
 Graficul pentru comparația scalabilității arată că OpenMP se apropie mult mai mult de idealul liniar comparativ cu MPI. Pentru imagini mari (**1_earth_8k**, **city**), speedup-ul este aproape 5 pentru 8 thread-uri. Abaterea de la ideal este mai mică, sugerând un overhead redus de sincronizare față de implementarea MPI.
@@ -118,7 +118,7 @@ Un pattern constant este că speedup-ul crește aproape liniar până la 4 threa
 
 
 #### Imaginea **poza**
-![Scheduling](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/poza_time_comparison.png)
+![Scheduling](../../wiki_images/openmp/poza_time_comparison.png)
 
 
 Pentru imagini de dimensiuni mici, impactul strategiei de scheduling asupra performanței este foarte pronunțat. Graficul arată clar că varianta cu static scheduling și chunk size de 64 oferă cele mai bune performanțe, fiind aproape de două ori mai rapidă decât varianta cu dynamic scheduling și chunk size de 256.
@@ -129,7 +129,7 @@ Guided scheduling se situează la mijloc, oferind un compromis între static și
 
 
 #### Imaginea **earth_8k**
-![Scheduling](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/earth_8k_time_comparison.png)
+![Scheduling](../../wiki_images/openmp/earth_8k_time_comparison.png)
 
 
 Pentru imagini mari, diferențele între strategiile de scheduling devin mult mai mici, dar pattern-ul general se menține. Static scheduling cu chunk size de o 128 sau 256 au cele mai bune performanțe, fiind ușor mai rapide decât variantele dynamic sau guided.
@@ -153,7 +153,7 @@ Pentru a înțelege mai profund comportamentul implementării OpenMP, au fost ef
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/VTune_T2_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/VTune_T2_time.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/VTune_T2_summary.png) | ![Efficiency Analysis](../../wiki_images/openmp/VTune_T2_time.png) |
 
 
 Analiza VTune pentru configurația cu 2 thread-uri arată un profil echilibrat și eficient. Timpul total de execuție este de aproximativ 7 secunde, iar cele mai solicitante funcții sunt cele computaționale ale algoritmului, fără overhead semnificativ din infrastructura OpenMP.
@@ -170,7 +170,7 @@ Absența funcțiilor de overhead OpenMP din top hotspots confirmă că pentru do
 
 | Summary | Time |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/VTune_T8_summary.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/VTune_T8_time.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/VTune_T8_summary.png) | ![Efficiency Analysis](../../wiki_images/openmp/VTune_T8_time.png) |
 
 
 Pentru configurația cu 8 thread-uri, profilul arată schimbări notabile în comportamentul algoritmului. Timpul total de execuție scade la aproximativ 5 secunde, reprezentând **o îmbunătățire semnificativă** față de 2 thread-uri, dar nu perfect proporțională cu numărul de thread-uri.
@@ -190,7 +190,7 @@ Pattern-ul din histogramă arată limitările scalării pentru 8 thread-uri. De�
 
 | Haswell | XL |
 |----------|----------|
-| ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/execution_time.png) | ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/openmp/xl_execution_time.png) |
+| ![Efficiency Analysis](../../wiki_images/openmp/execution_time.png) | ![Efficiency Analysis](../../wiki_images/openmp/xl_execution_time.png) |
 
 
 Fiecare thread adăugat contribuie cu o îmbunătățire măsurabilă, chiar dacă beneficiul scade progresiv. Această caracteristică demonstrează că modelul de memorie partajată al OpenMP elimină costurile de comunicare care limitează MPI.

@@ -26,7 +26,7 @@ Recursivitatea din Hysteresis, introduce overhead semnificativ și limitează pe
   <br>
 
   ### Histograma Eficienței
-  ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/serial/VTune_histograma.png)
+  ![Efficiency Analysis](../../wiki_images/serial/VTune_histograma.png)
 
 
 * Histograma arată un pattern extrem de revelator pentru implementarea serială. Vârful masiv la zero sau un CPU activ domină complet graficul, aproape întreaga execuție petrecându-se cu un singur CPU utilizat. Bara este atât de pronunțată încât comprimă complet scala, făcând orice altă activitate practic nesemnificativă.
@@ -36,7 +36,7 @@ Recursivitatea din Hysteresis, introduce overhead semnificativ și limitează pe
 * Pattern-ul este caracteristic pentru cod pur secvențial fără niciun grad de paralelizare. Fiecare operație este executată complet înainte de a începe următoarea, fiecare pixel este procesat înainte de a trece la următorul, și fiecare etapă a algoritmului se desfășoară liniar fără oportunități de execuție concurentă. Această utilizare de doar douăzeci până la treizeci de procente din puterea totală de procesare disponibilă reprezintă cea mai clară motivație pentru paralelizare.
 
   ### Timpul de Execuție
-  ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/serial/VTune_time.png)
+  ![Efficiency Analysis](../../wiki_images/serial/VTune_time.png)
 
 * Analiza arată un timp total de execuție de aproximativ 10s, timpul efectiv de procesare fiind de aproximativ 9s. Numărul de thread-uri raportat este trei, reprezentând thread-ul principal plus thread-uri auxiliare ale runtime-ului și sistemului de operare, nu paralelism efectiv în algoritmul utilizatorului.
 
@@ -46,7 +46,7 @@ Recursivitatea din Hysteresis, introduce overhead semnificativ și limitează pe
 
 
   ### Studiu Serial
-  ![Efficiency Analysis](https://gitlab.cs.pub.ro/app-2025/cannycore/-/raw/main/wiki_images/serial/VTune_studiu_serial.png)
+  ![Efficiency Analysis](../../wiki_images/serial/VTune_studiu_serial.png)
 
 
 * Vizualizarea call stack-ului și timeline-ului de execuție arată structura ierarhică a algoritmului. Gaussian Blur ocupă o bandă largă, vizibil mai substanțială decât toate celelalte componente. Această reprezentare vizuală confirmă datele numerice din top hotspots, arătând că blur-ul consumă nu doar majoritatea timpului ci și o porțiune continuă și neîntreruptă din execuție.
