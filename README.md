@@ -2,8 +2,7 @@
 
 Acest proiect exploreaza implementarea si optimizarea algoritmului Canny pentru detectia de contururi, pornind de la o versiune seriala si ajungand la diverse implementari paralele.
 
-**[➡️ Pentru documentatia tehnica, analiza performantei si jurnalul de progres, consultati Wiki-ul proiectului](https://gitlab.cs.pub.ro/app-2025/cannycore/-/wikis/home)**
-
+**[➡️ Documentația tehnică, analiza performanței (profilare) și jurnalul de progres](docs/README.md)**
 ---
 
 ### Echipa
